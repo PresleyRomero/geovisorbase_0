@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visor Base - Ejemplo</title>
+	<link rel="icon" type="image/png" href="http://www.osinergmin.gob.pe/_catalogs/masterpage/starter/images/osinerg.ico">
+  <link href = "https://code.jquery.com/ui/1.12.1/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet"> -->
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/themes/light/main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.15/dijit/themes/claro/claro.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/widget.css">
+  <link rel="stylesheet" type="text/css" href="css/libs.css">
+
+  
+
+</head>
+<body id="mibody">
+  
+  <div  id="viewDiv" class="desactive-click"></div>
+
+  <div class="menu-main menu boxsombra boxradio" >
+    <ul class="list-inline text-center">      
+      <li>
+        <a href="#" role="button" id="btn_menusv">
+          <img src="img/pegman-md.png">
+        </a>        
+      </li>      
+    </ul>
+  </div>
+ 
+  
+  <!-- Elementos/widgets sobre el visor -->
+
+  <!-- capas -->
+  <div class="card layers-card p-0 boxradio boxsombra draggable-element">
+    <div class="card-header p-1">
+      <img src="img/menuLayers.png" alt="" srcset="">
+      <strong>Capas</strong>
+      <span class="btn-close icon-close">X</span>
+    </div>
+    <div class="card-body p-0">
+      <div id="container-layers"></div>
+    </div>
+  </div>
+    
+  <!-- leyenda -->
+  <div class="card legend-card p-0 boxradio boxsombra draggable-element">  
+    <div class="card-header p-1">
+      <img src="img/menuLayers.png" alt="" srcset="">
+      <strong>Leyenda</strong>
+      <span class="btn-close icon-close " >X</span>
+    </div>
+    <div class="card-body p-0">
+      <div id="container-legend"></div>      
+    </div>
+  </div>
+
+  <!-- street view --> 
+  <div id="wg_streetview" class="card streetview-card boxradio boxsombra draggable-element notvisible" > 
+    <div class="card-header p-1">
+      <img src="img/menuLayers.png" alt="" srcset="">
+      <strong>Street View</strong>
+      <span class="btn-close icon-close" >X</span>
+    </div>
+
+    <div class="card-body p-0">
+      <div id="container_streetview"> </div> 
+      <div class="message-noresults-sv">Street View no disponible en esta ubicación</div>
+      <div class="foot-sv">
+        <div class="message-instruction-sv">Click en el mapa para visualizar un panorama </div>
+        <button id="btn_markstreet" class="desactive" title="Activar click en el mapa"><img src="img/blueArrowNew.png"></button>
+      </div>      
+    </div>   
+  </div>
+  
+
+  <script>
+    var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+    
+    window.dojoConfig = {
+      parseOnLoad: true,
+      packages: [
+        {
+          name: "js",
+          location: locationPath + "/js"
+        }
+      ]
+    };
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
+  <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+  <script src="https://js.arcgis.com/4.15/"></script>
+  <script  src="js/root.js"></script>
+  <script  src="js/eventswindow/events.js"></script>
+  
+
+  <!-- My key -->
+  <script async defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgGKm75my5ZA_yTTgAgey3YiEEgzdVEi0">
+  </script>
+
+  <!-- Key  Osinergmin-->
+<!--   <script async defer
+       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmbMJmoWDy9TOS-cxOeCubUaIdNcSemk8">
+  </script>
+ -->  
+	
+	</body>
+</html>

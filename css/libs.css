@@ -1,0 +1,21 @@
+/******************* CAMBIA ESTILOS DE ESRI - API ARCGIS ************************/
+
+/*Menu de Contexto (right click)*/
+.dijitMenuPopup{
+	border-radius: 5px;
+	padding: 5px 0px;
+	background-color: white;
+}
+.dijitMenuPopup .dijitMenuItem{
+	height: 2em;
+}
+.dijitMenuPassive .dijitMenuItemHover, .dijitMenuItemSelected {
+    background-color: #005aa0ed;
+    color: white;
+}
+.dijitMenuItemIconCell{
+	padding-left: 8px;
+}
+.dijitMenuItemLabel{
+	padding: 0 8px;
+}
