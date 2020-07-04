@@ -1,3 +1,7 @@
+:root {
+    --osirn-primary: #075DAA;
+}
+
 html, body, #viewDiv {
     padding: 0;
     margin: 0;
@@ -5,67 +9,25 @@ html, body, #viewDiv {
     width: 100%;
 }
 
-
-.navbar-fixed-top {
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 11;
+.visible{
+    display: block;
+}
+.notvisible{
+    display: none;
 }
 
-#forma1 .cls-2{
-    fill:#075daa;
+.btn-close:hover{
+  cursor: pointer;
 }
-
-#forma1 .cls-20{
-    font-size: 50px;
-    fill:#eee;
-    font-family:arial;
+.icon-close{
+    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+    float: right;
+    text-align: center;
+    padding-top: 2.5px;
+    background-color: rgba(255,255,255,.5);
 }
-
-@media only screen and (max-width: 768px) {
-    #forma1 .cls-20{
-        font-size: 34px;
-    }
-    .Capa_1{
-        width: 341px;
-        height: 30px;
-    }
-}
-@media only screen and (max-width: 400px) {
-    .hide-on-md{
-      display: none;
-    }
-}
-/** fin */
-
-.layers-card{
-    position: absolute!important;
-    padding: 0;
-    z-index: 1;
-    top: 10px;
-    left: 10px;
-    max-width: 340px;
-    max-height: 450px;
-    /* background-color: transparent; */
-    background-color: white;
-    /*cursor: all-scroll;*/
-}
-
-.legend-card{
-    position: absolute!important;
-    padding: 0;
-    z-index: 1;
-    bottom: 15px;
-    right: 10px;
-    max-width: 340px;
-    max-height: 450px;
-    /* background-color: transparent; */
-    background-color: white;
-    /*cursor: all-scroll;*/
-}
-
-
 
 .boxradio{
     /* border-radius: 5px; */
@@ -84,241 +46,7 @@ html, body, #viewDiv {
 }
 
 
-
-
-.icon-close{
-    border-radius: 50%;
-    height: 1.5em;
-    width: 1.5em;
-    float: right;
-    text-align: center;
-    padding-top: 2.5px;
-    background-color: rgba(255,255,255,.5);
-}
-
-/* #featureLayer{
-    max-height: 450px;
-} */
-.esri-layer-list{
-    background-color: white !important;
-    padding: 0 !important;
-    max-height: 450px;
-    /* width: 100%; */
-}
-/* .esri-layer-list__item-title {
-    font-weight: 500;
-    color: #000;
-}*/
-.esri-layer-list__item-container {
-    padding: 4px 7px 1px 20px!important;
-}   
-.esri-layer-list-panel{
-    margin: 0;
-}
-
-
-.esri-layer-list__item-title {
-  font-weight: 500;
-  color: #000;
-}
-
-.esri-ui-top-left {
-    top: 240px!important;
-    display: none!important;
-}
-.esri-ui-corner .esri-component {
-    background-color: rgba(255,255,255,.1);
-    box-shadow: none!important;
-}
-.esri-navigation-toggle__button--rotate {
-    border-top: solid 0px #e0e0e0!important;
-}
-
-.card-consulta{
-    border: 1px solid black;
-    margin-right: 0px;
-    margin-left: 0px;
-}
-
-.card-consulta label{
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.card-consulta .form-group{
-    margin-bottom: 0.8rem;
-}
-
-
-.grilla{
-    position: absolute!important;
-    left: 100px;
-    top: calc(100% - 28em);
-    width:1050px;
-    font-size: 11px;  
-    background-color:#fff;
-    border-color: #000;
-    border-radius:5px;
-  }
-  
-  .grilla h3{
-    font-size: 12px;
-  }
-  .grilla p{
-    font-size: 11px;
-    margin: 0;
-    text-transform: uppercase;
-  }
-
-  .headgrid{
-    padding: 5px 0px 3px 10px;
-    background-color: #075daa;
-    color: #fff;
-    margin: 0;
-    font-size: 13px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  
-  .headgrid:hover{
-    cursor: move;
-  }
-
-  .btn_close_grid{
-    background-color: rgba(255,255,255,.4);
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    padding: 0;
-    text-align: center;
-    float: right;
-    margin-right: 10px;
-    margin-top: -10px;
-    cursor: pointer;
-    font-size: 21px;
-}
-
-.btn_close_grid:hover{
-  color: #E5E2E2;
-}
-
-#grid_PL{
-    position: relative;
-  }
-
-  .bodygrid{
-    height: 150px;
-    overflow-y: auto;
-    margin: 5px;
-    border-bottom-color: #BCBCBC;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;  
-  }
-
-  
-.tablaResultado{
-    margin: 0;
-    font-size: 11px;
-    color: #000;
-    border: 1px solid #BCBCBC!important;
-  }
-  
-  
-  .tablaResultado th{
-    border: 1px solid #BCBCBC!important;
-    background-color: #d0d0d0;
-  }
-  .tablaResultado td{
-    border: 1px solid #BCBCBC!important;
-  }
-  
-  .tablaResultado thead tr th{
-    border: 1px solid #2f2f2f;
-  }
-  .tablaResultado tr td{
-    border: 1px solid #2f2f2f;
-  }
-  .tablaResultado thead tr th:nth-child(1){
-    width: 5%!important;
-    background-color: #d0d0d0;
-    background: #d0d0d0;
-  }
-  
-  /* .tablaResultado thead tr th:nth-child(2){
-    display: none;
-  } */
-  
-  .td_hidden{
-    display: none;
-  }
-  /* .tablaResultado thead tr th:nth-child(3){
-  }
-  .tablaResultado thead tr th:nth-child(4){
-  }
-  .tablaResultado thead tr th:nth-child(5){
-  } */
-  
-  .tablaResultado.tablaResultadosecond{
-    width: 100%;
-  }
-  .tablaResultado.tablaResultadosecond thead tr th:nth-child(1){
-    display: none;
-  }
-  .tablaResultado.tablaResultadosecond thead tr th:nth-child(2){
-    display: table-cell;
-  }
-
-  .footer_tabla{
-    padding: 0 10px;
-    font-size: 11px;
-  }
-  .footer_tabla table{
-    width: 100%;
-  }
-  
-  .footer_tabla table tr td:nth-child(1){
-    width: 75%;
-    text-align: right;  
-  }
-  .footer_tabla table tr td:nth-child(2){
-    text-align: right;
-  }
-
-
-/********************** NEW ********************************/
-
-:root {
-    --osirn-primary: #075DAA;
-}
-
-.btn-close:hover{
-  cursor: pointer;
-}
-
-.visible{
-    display: block;
-}
-.notvisible{
-    display: none;
-}
-
-/** Cards **/
-.card-header{
-    text-transform: uppercase;
-    font-size: 12px;
-    background-color:#075daa;
-    color: white;
-    cursor: all-scroll;
-}
-.card-header img{
-    width: 1.15em;
-    margin: 2px;
-}
-.card-body{
-  overflow-y: auto;
-}
-
-/* Menu Main Lateral  */
+/** Menu Main Lateral  **/
 .menu .list-inline{
     margin-bottom: 0px;
 }
@@ -339,6 +67,22 @@ html, body, #viewDiv {
 }
 .menu-main .list-inline li img{
     width: 30px;
+}
+
+/** Cards **/
+.card-header{
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color:#075daa;
+    color: white;
+    cursor: all-scroll;
+}
+.card-header img{
+    width: 1.15em;
+    margin: 2px;
+}
+.card-body{
+  overflow-y: auto;
 }
 
 /* Efecto Parpadeo*/
@@ -368,3 +112,16 @@ html, body, #viewDiv {
    50% { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
+
+
+
+/*************** RESPONSIVO **************************/
+  @media only screen and (max-width: 768px) {
+    
+  }
+  @media only screen and (max-width: 400px) {
+     /* .hide-on-md{
+        display: none;
+      }*/
+  }
+

@@ -14,25 +14,15 @@ define([
 		Popup,
 		Graphic
 	){
-
-		$(function() {
-	      console.log( "ready Street view - widget!" );
-	      createContextMenu();
-
-	    });
-
+		
 		__view = Visor.getView();
 
-		__ctxmenu = {};
 		__isinited_streetview = false;
 		__svpanorama = '';
 		__svservice = '';
-
-		__latylng = {};
-		__mappoint = {}; //map point in clicked (point geometry)
-		__gra_placemarker = {}; 
-
+		
 		__isactive_btnmark = false;   
+		__gra_placemarker = {}; 
 		__symbolsv = {
 		  type: "picture-marker", 
 		  url: "img/blueArrow4.png",
@@ -63,19 +53,8 @@ define([
 		});
 
 		__view.on("click", function(event){
-		  __mappoint = event.mapPoint;
-		  __latylng = { lat:__mappoint.latitude, lng:__mappoint.longitude };
-		  if (event.button === 2) { //if(right click)
-		    Popup.open({
-		      popup: __ctxmenu,
-		      x: event.x,
-		      y: event.y          
-		    }); 
-		  } else if(__isactive_btnmark){
-		    Popup.close(__ctxmenu);
-		    loadPanorama();
-		  }else{
-		    Popup.close(__ctxmenu);
+		  if(event.button === 0 && __isactive_btnmark){
+		  	loadPanorama(event.mapPoint);
 		  }
 		});
 
@@ -91,14 +70,16 @@ define([
 		  __isinited_streetview = true;
 		}
 
-		function loadPanorama() {
+		function loadPanorama(mappoint) {
+		  __isinited_streetview==false ? initStreetView() : '';
+		  let latylng = { lat: mappoint.latitude, lng: mappoint.longitude };
 		  let $containersv = $('#container_streetview').css('display', 'block');
 		  let $msg_noresult = $('.message-noresults-sv').css('display', 'none');
 		  
-		  __svservice.getPanorama({location: __latylng, radius: 50}, function(data, status){
+		  __svservice.getPanorama({location: latylng, radius: 50}, function(data, status){
 		    if (status === 'OK') {          
 		      if(__isactive_btnmark) $('#btn_markstreet').click();          
-		      __svpanorama.setPosition(__latylng); // ó __svpanorama.setPano(data.location.pano);    
+		      __svpanorama.setPosition(latylng); // ó __svpanorama.setPano(data.location.pano);    
 		      __svpanorama.setVisible(true);          
 		    }else {
 		      $containersv.css('display', 'none');
@@ -113,15 +94,15 @@ define([
 		  __svpanorama.addListener('position_changed', function() {
 		    if (__view.graphics.items.length === 0) { 
 		      __gra_placemarker = new Graphic({
-		        geometry: __mappoint, 
+		        geometry: mappoint, 
 		        symbol: __symbolsv     
 		      });   
 		      __view.graphics.add(__gra_placemarker);
 		    } 
 		    let panoposition = __svpanorama.getPosition();
-		    __mappoint.latitude = panoposition.lat();
-		    __mappoint.longitude = panoposition.lng();
-		    __gra_placemarker.geometry = __mappoint;
+		    mappoint.latitude = panoposition.lat();
+		    mappoint.longitude = panoposition.lng();
+		    __gra_placemarker.geometry = mappoint;
 		  });
 
 		  //event rotation changed 
@@ -132,29 +113,13 @@ define([
 		  });             
 		}
 
+		
 
-		function createContextMenu() { 
-		  __ctxmenu = new Menu();
-		  __ctxmenu.addChild(new MenuItem({
-		    label: "Abrir Street View aquí",
-		    iconClass: "esri-icon-media", //esri-icon-tracking , esri-icon-navigation
-		    onClick: function (evt) {         
-		      $('#wg_streetview').removeClass('notvisible').addClass('visible');
-		      __isinited_streetview==false ? initStreetView(): '';
-		      loadPanorama();
-		      Popup.close(__ctxmenu);
-		    }
-		  }));
-		  __ctxmenu.addChild(new MenuItem({
-		    label: "Ver dirección aquí",
-		    iconClass: "esri-icon-map-pin",
-		    onClick: function () {
-		      console.log("clicó en opcion 2");
-		      Popup.close(__ctxmenu);
-		    }
-		  }));
-		  __ctxmenu.startup();
-		}
+		/**************** RETURN FUNCIONES ******************** */    
+
+	    return{
+	      loadPanorama: function(mappoint){ return loadPanorama(mappoint); }
+	    }
 
 	}
 );

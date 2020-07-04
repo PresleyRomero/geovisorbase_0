@@ -19,7 +19,7 @@ define([
       "esri/layers/GeoJSONLayer",
 
       // "esri/layers/GraphicsLayer",
-      // "esri/Graphic",
+      "esri/Graphic",
      
       "esri/views/2d/draw/Draw",
       "esri/geometry/geometryEngine",
@@ -32,6 +32,7 @@ define([
       "esri/geometry/Polygon",
       "esri/symbols/PictureMarkerSymbol",
       "esri/renderers/SimpleRenderer",
+
 
       "dojo/domReady!"
 
@@ -56,7 +57,7 @@ define([
       GeoJSONLayer,
      
       // GraphicsLayer,
-      // Graphic,
+      Graphic,
      
       Draw,
       geometryEngine,
@@ -67,13 +68,14 @@ define([
       Point,
       Polygon,
       PictureMarkerSymbol,
-      SimpleRenderer,
+      SimpleRenderer
 
     ){
 
 
       $(function() {
           console.log( "ready visor!" );
+          // createContextMenu();
 
       });
 
@@ -191,6 +193,15 @@ define([
     Espacio para escribir/testear Nuevas funcionalidades y/o widgets 
     */
 
+   
+
+
+
+
+
+
+
+
 
 
 
@@ -198,7 +209,6 @@ define([
     /*
     Espacio para escribir/testear nuevas funciones de apoyo a usar
     */
-
 
 
 

@@ -1,6 +1,32 @@
 /******************* CAMBIA ESTILOS DE ESRI - API ARCGIS ************************/
 
-/*Menu de Contexto (right click)*/
+/** Personalización de Layerlist **/
+.esri-layer-list{
+    background-color: white !important;
+    padding: 0 !important;
+    max-height: 450px;
+}
+.esri-layer-list__item-container {
+    padding: 4px 7px 1px 20px!important;
+}   
+.esri-layer-list-panel{
+    margin: 0;
+}
+.esri-layer-list__item-title {
+  font-weight: 500;
+  color: #000;
+}
+.esri-ui-top-left {
+    top: 240px!important;
+    display: none!important;
+}
+.esri-ui-corner .esri-component {
+    background-color: rgba(255,255,255,.1);
+    box-shadow: none!important;
+}
+
+
+/** Menu de Contexto (right click) **/
 .dijitMenuPopup{
 	border-radius: 5px;
 	padding: 5px 0px;

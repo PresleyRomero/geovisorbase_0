@@ -1,6 +1,26 @@
+/** Básicos **/
+.layers-card{
+    position: absolute!important;
+    padding: 0;
+    z-index: 1;
+    top: 10px;
+    left: 10px;
+    max-width: 340px;
+    max-height: 450px;
+    background-color: white;
+}
+.legend-card{
+    position: absolute!important;
+    padding: 0;
+    z-index: 1;
+    bottom: 15px;
+    right: 10px;
+    max-width: 340px;
+    max-height: 450px;
+    background-color: white;
+}
 
 /* Widget Street View */
-
 .streetview-card{
     position: absolute!important;
     padding: 0;
